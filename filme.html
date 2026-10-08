@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Filme — CLAQUETE</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/filme.css">
+  <link rel="stylesheet" href="css/comentarios.css">
+  <link rel="stylesheet" href="css/busca.css">
+  <meta name="description" content="CLAQUETE: catálogo de filmes e séries.">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+
+</head>
+
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html"><img src="img/logo.svg" alt="CLAQUETE — ir para a página inicial"></a>
+
+      <nav class="menu" aria-label="Principal">
+        <ul>
+          <li>
+            <a href="index.html">
+              <svg class="icone" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 11 12 3l9 8M5 9.5V21h14V9.5M10 21v-6h4v6" />
+              </svg>
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="filmes.html" aria-current="page">
+              <svg class="icone" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 10h18v10H3zM2.5 6.5l17-3.5.8 4L3.3 10.5zM8 5l2 3.5M13 4l2 3.5" />
+              </svg>
+              Filmes
+            </a>
+          </li>
+          <li>
+            <a href="series.html">
+              <svg class="icone" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 7h18v13H3zM8 3l4 4 4-4" />
+              </svg>
+              Séries
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <form class="busca" role="search" action="filmes.html" method="get">
+        <label class="sr-only" for="busca-input">Pesquisar filmes e séries</label>
+        <div class="busca__campo">
+          <input id="busca-input" type="search" name="q" placeholder="Buscar título…" autocomplete="off">
+          <button type="submit" aria-label="Pesquisar">
+            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="10.5" cy="10.5" r="6.5" />
+              <path d="M15.5 15.5 21 21" />
+            </svg>
+          </button>
+        </div>
+        <div class="busca__resultados" id="busca-resultados" hidden></div>
+      </form>
+    </div>
+  </header>
+
+  <main id="conteudo" class="pagina pagina--filme" data-tipo="filme">
+    <div class="container">
+
+      <!-- Conteúdo do filme (preenchido por modelo.js) -->
+      <div id="modelo">
+        <nav class="trilha" aria-label="Você está em">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="filmes.html">Filmes</a></li>
+            <li aria-current="page" id="trilha-titulo">…</li>
+          </ol>
+        </nav>
+
+        <figure class="modelo__imagem">
+          <img id="modelo-imagem" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" width="1280" height="720">
+        </figure>
+
+        <header class="modelo__cab">
+          <a class="etiqueta" href="filmes.html" aria-label="Tipo: filme. Ver todos os filmes">FILME</a>
+          <h1 class="modelo__titulo" id="modelo-titulo">Carregando…</h1>
+          <p class="modelo__meta" id="modelo-meta"></p>
+        </header>
+
+        <div class="modelo__corpo">
+          <section aria-labelledby="h-sinopse">
+            <h2 class="modelo__rotulo" id="h-sinopse">Sinopse</h2>
+            <p class="modelo__sinopse" id="modelo-sinopse"></p>
+          </section>
+
+          <section aria-labelledby="h-ficha">
+            <h2 class="modelo__rotulo" id="h-ficha">Ficha técnica</h2>
+            <dl class="ficha" id="modelo-ficha"></dl>
+          </section>
+        </div>
+
+        <section class="bloco comentarios" aria-labelledby="h-comentarios">
+          <h2 class="bloco__titulo" id="h-comentarios"><span class="bloco__num" id="comentarios-qtd">00</span> Comentários</h2>
+
+          <form class="comentarios__form" id="comentario-form" novalidate>
+            <fieldset>
+              <legend class="sr-only">Deixe seu comentário</legend>
+              <div class="campo">
+                <label for="c-nome">Nome</label>
+                <input id="c-nome" name="nome" type="text" maxlength="40" autocomplete="name" required aria-describedby="c-aviso">
+              </div>
+              <div class="campo">
+                <label for="c-texto">Comentário</label>
+                <textarea id="c-texto" name="texto" rows="4" maxlength="500" required aria-describedby="c-contador c-aviso"></textarea>
+                <p class="campo__ajuda" id="c-contador">0 / 500</p>
+              </div>
+              <button class="botao" type="submit">Publicar</button>
+              <p class="comentarios__aviso" id="c-aviso" role="status"></p>
+            </fieldset>
+          </form>
+
+          <ol class="comentarios__lista" id="lista-comentarios">
+            <li class="vazio">Nenhum comentário ainda.</li>
+          </ol>
+        </section>
+      </div>
+
+      <!-- Aviso de id inválido -->
+      <section class="erro" id="erro" hidden aria-labelledby="erro-titulo">
+        <h1 id="erro-titulo">Filme não encontrado</h1>
+        <p>O endereço não aponta para nenhum filme do catálogo. Volte para a lista e escolha um título.</p>
+        <div class="erro__links">
+          <a class="botao" href="filmes.html">Ver todos os filmes</a>
+          <a class="botao botao--vazado" href="index.html">Ir para a Home</a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p><strong>CLAQUETE</strong> &copy; 2026. Todos os direitos reservados.</p>
+      <div class="parceiros">
+        <h2>Sites parceiros</h2>
+        <ul>
+          <li><a href="https://www.imdb.com" target="_blank" rel="noopener noreferrer">IMDb</a></li>
+          <li><a href="https://letterboxd.com" target="_blank" rel="noopener noreferrer">Letterboxd</a></li>
+          <li><a href="https://filmow.com" target="_blank" rel="noopener noreferrer">Filmow</a></li>
+          <li><a href="https://www.adorocinema.com" target="_blank" rel="noopener noreferrer">AdoroCinema</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/busca.js"></script>
+  <script src="js/modelo.js"></script>
+  <script src="js/comentarios.js"></script>
+</body>
+
+</html>

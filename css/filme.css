@@ -1,0 +1,269 @@
+/* ==========================================================
+   CLAQUETE — filme.css (Filme Modelo)
+   ========================================================== */
+
+.pagina--filme {
+  padding-top: 24px;
+  padding-bottom: 0;
+}
+
+/* ---------- Trilha ---------- */
+
+.trilha ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 20px;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.trilha li + li::before {
+  content: "/";
+  margin-right: 8px;
+  color: var(--muted);
+}
+.trilha a {
+  color: var(--muted);
+}
+.trilha a:hover {
+  color: var(--fg);
+}
+.trilha [aria-current="page"] {
+  color: var(--fg);
+}
+
+/* ---------- Imagem em destaque ---------- */
+
+.modelo__imagem {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--bg-alt);
+}
+.modelo__imagem img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+/* ---------- Cabeçalho do título ---------- */
+
+.modelo__cab {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+  margin-top: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.etiqueta {
+  display: inline-block;
+  padding: 8px 14px;
+  border: 1px solid var(--accent);
+  border-radius: 0;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-decoration: none;
+}
+.etiqueta:hover {
+  background: var(--fg);
+  border-color: var(--fg);
+  color: var(--bg);
+}
+
+.modelo__titulo {
+  flex: 1 1 320px;
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.modelo__meta {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* ---------- Corpo: sinopse + ficha ---------- */
+
+.modelo__corpo {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 40px;
+  margin-top: 32px;
+}
+
+.modelo__rotulo {
+  margin: 0 0 12px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+.modelo__sinopse {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  max-width: 62ch;
+}
+
+.ficha {
+  margin: 0;
+  border-top: 1px solid var(--line-strong);
+}
+.ficha > div {
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr);
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+.ficha dt {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-top: 3px;
+}
+.ficha dd {
+  margin: 0;
+}
+
+/* ---------- Erro (id inválido) ---------- */
+
+.erro {
+  margin-top: 8px;
+  padding: 32px 24px;
+  border: 1px solid var(--fg);
+}
+.erro[hidden] {
+  display: none;
+}
+.erro h1 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  margin-bottom: 12px;
+}
+.erro p {
+  margin: 0 0 20px;
+  max-width: 56ch;
+  color: var(--muted);
+}
+.erro__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ---------- Botões e formulário ---------- */
+
+.botao {
+  display: inline-flex;
+  align-items: center;
+  padding: 11px 18px;
+  border: 1px solid var(--fg);
+  border-radius: 0;
+  background: var(--fg);
+  color: var(--bg);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+}
+.botao:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.botao:disabled {
+  background: transparent;
+  border-color: var(--line-strong);
+  color: var(--muted);
+  cursor: not-allowed;
+}
+.botao--vazado {
+  background: transparent;
+  color: var(--fg);
+}
+
+.comentarios__form fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.campo {
+  margin-bottom: 16px;
+}
+.campo label {
+  display: block;
+  margin-bottom: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.campo input,
+.campo textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-title);
+  font-size: 1rem;
+}
+.campo textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+.campo input:disabled,
+.campo textarea:disabled {
+  border-color: var(--line);
+  color: var(--muted);
+}
+
+.comentarios__aviso {
+  margin: 12px 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.comentarios__lista {
+  margin: 32px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 800px) {
+  .modelo__corpo {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .modelo__titulo {
+    flex-basis: 100%;
+  }
+}

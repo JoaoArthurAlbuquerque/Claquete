@@ -1,0 +1,26 @@
+/* ==========================================================
+   CLAQUETE — series.css (Todas as Séries)
+   ========================================================== */
+
+.pagina--series {
+  padding-bottom: 0;
+}
+
+.pagina--series .grade {
+  --colunas: 3;
+  gap: 40px 24px;
+}
+
+.pagina--series .item__titulo {
+  font-size: 1.2rem;
+}
+
+@media (max-width: 800px) {
+  .pagina--series .grade {
+    --colunas: 2;
+    gap: 28px 16px;
+  }
+  .pagina--series .item__titulo {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,91 @@
+/* ==========================================================
+   CLAQUETE — comentarios.css
+   Contador, validação e lista de comentários
+   ========================================================== */
+
+.comentarios__form {
+  max-width: 640px;
+}
+
+.campo__ajuda {
+  margin: 4px 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-align: right;
+  color: var(--muted);
+}
+
+.campo input[aria-invalid="true"],
+.campo textarea[aria-invalid="true"] {
+  border-color: var(--accent-text);
+  outline: 1px solid var(--accent-text);
+}
+
+.comentarios__aviso {
+  min-height: 1.4em;
+}
+.comentarios__aviso[data-estado="erro"] {
+  color: var(--accent-text);
+}
+.comentarios__aviso[data-estado="ok"] {
+  color: var(--fg);
+}
+
+.comentarios__lista {
+  max-width: 760px;
+}
+
+.comentario {
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+}
+.comentario:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.comentario__cab {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 14px;
+}
+
+.comentario__nome {
+  font-size: 1.05rem;
+}
+
+.comentario__data {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.comentario__excluir {
+  margin-left: auto;
+  padding: 2px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line-strong);
+  border-radius: 0;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.comentario__excluir:hover {
+  color: var(--accent-text);
+  border-bottom-color: var(--accent-text);
+}
+
+.comentario__texto {
+  margin: 8px 0 0;
+  max-width: 68ch;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.comentarios__lista .vazio {
+  min-height: 0;
+}

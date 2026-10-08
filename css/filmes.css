@@ -1,0 +1,26 @@
+/* ==========================================================
+   CLAQUETE — filmes.css (Todos os Filmes)
+   ========================================================== */
+
+.pagina--filmes {
+  padding-bottom: 0;
+}
+
+.pagina--filmes .grade {
+  --colunas: 3;
+  gap: 40px 24px;
+}
+
+.pagina--filmes .item__titulo {
+  font-size: 1.2rem;
+}
+
+@media (max-width: 800px) {
+  .pagina--filmes .grade {
+    --colunas: 2;
+    gap: 28px 16px;
+  }
+  .pagina--filmes .item__titulo {
+    font-size: 1rem;
+  }
+}
